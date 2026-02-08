@@ -104,7 +104,7 @@ async function app(req: Request): Promise<Response> {
   // -------------------------------------------------------
   if (username.toLowerCase() !== "miyaken1201") {
     return new Response(
-      "Forbidden: This API is restricted to the administrator (miyaken1201).", 
+      "Forbidden: This API is restricted to the administrator.", 
       {
         status: 403,
         headers: new Headers({
