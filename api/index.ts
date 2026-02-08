@@ -98,6 +98,25 @@ async function app(req: Request): Promise<Response> {
       },
     );
   }
+
+// -------------------------------------------------------
+  // ▼▼▼ 追加部分: ここで自分以外のユーザーをブロックします ▼▼▼
+  // -------------------------------------------------------
+  if (username.toLowerCase() !== "miyake1201") {
+    return new Response(
+      "Forbidden: This API is restricted to the administrator (miyaken1201).", 
+      {
+        status: 403,
+        headers: new Headers({
+          "Content-Type": "text/plain",
+          "Cache-Control": "no-store", // エラーはキャッシュさせない
+        }),
+      }
+    );
+  }
+  // ▲▲▲ 追加部分終了 ▲▲▲
+  // -------------------------------------------------------
+  
   let theme: Theme = COLORS.default;
   if (Object.keys(COLORS).includes(themeParam)) {
     theme = COLORS[themeParam];
