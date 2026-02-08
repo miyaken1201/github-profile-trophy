@@ -102,7 +102,7 @@ async function app(req: Request): Promise<Response> {
 // -------------------------------------------------------
   // ▼▼▼ 追加部分: ここで自分以外のユーザーをブロックします ▼▼▼
   // -------------------------------------------------------
-  if (username.toLowerCase() !== "miyake1201") {
+  if (username.toLowerCase() !== "miyaken1201") {
     return new Response(
       "Forbidden: This API is restricted to the administrator (miyaken1201).", 
       {
